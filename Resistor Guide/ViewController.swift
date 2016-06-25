@@ -18,15 +18,20 @@ class ViewController: UIViewController {
 	@IBOutlet weak var valueLabel: UILabel!
 	@IBOutlet weak var valueLabelButton: UIButton!
 	@IBOutlet weak var space0: UIView!
-	@IBOutlet weak var band0Button: UIButton!
+	@IBOutlet weak var band0IncrementButton: UIButton!
+	@IBOutlet weak var band0DecrementButton: UIButton!
 	@IBOutlet weak var space01: UIView!
-	@IBOutlet weak var band1Button: UIButton!
+	@IBOutlet weak var band1IncrementButton: UIButton!
+	@IBOutlet weak var band1DecrementButton: UIButton!
 	@IBOutlet weak var space12: UIView!
-	@IBOutlet weak var band2Button: UIButton!
+	@IBOutlet weak var band2IncrementButton: UIButton!
+	@IBOutlet weak var band2DecrementButton: UIButton!
 	@IBOutlet weak var space23: UIView!
-	@IBOutlet weak var band3Button: UIButton!
+	@IBOutlet weak var band3IncrementButton: UIButton!
+	@IBOutlet weak var band3DecrementButton: UIButton!
 	@IBOutlet weak var space34: UIView!
-	@IBOutlet weak var band4Button: UIButton!
+	@IBOutlet weak var band4IncrementButton: UIButton!
+	@IBOutlet weak var band4DecrementButton: UIButton!
 
 	// **********************
 
@@ -38,7 +43,13 @@ class ViewController: UIViewController {
 			resistorBackgroundView.backgroundColor = nil
 			containerView.backgroundColor = nil
 			[space0, space01, space12, space23, space34].forEach { $0.hidden = true }
-			[band0Button, band1Button, band2Button, band3Button, band4Button].forEach { $0.backgroundColor = nil }
+			[
+				band0IncrementButton, band0DecrementButton,
+				band1IncrementButton, band1DecrementButton,
+				band2IncrementButton, band2DecrementButton,
+				band3IncrementButton, band3DecrementButton,
+				band4IncrementButton, band4DecrementButton
+			].forEach { $0.backgroundColor = nil }
 		}
 	}
 
@@ -48,42 +59,42 @@ class ViewController: UIViewController {
 
 	// **********************
 
-	@IBAction func band0UpperPressed(sender: UIButton) {
+	@IBAction func band0IncrementPressed(sender: UIButton) {
 		band0 = increment(band0)
 	}
-	@IBAction func band0LowerPressed(sender: UIButton) {
+	@IBAction func band0DecrementPressed(sender: UIButton) {
 		band0 = decrement(band0)
 	}
-	@IBAction func band1UpperPressed(sender: UIButton) {
+	@IBAction func band1IncrementPressed(sender: UIButton) {
 		band1 = increment(band1)
 	}
-	@IBAction func band1LowerPressed(sender: UIButton) {
+	@IBAction func band1DecrementPressed(sender: UIButton) {
 		band1 = decrement(band1)
 	}
-	@IBAction func band2UpperPressed(sender: UIButton) {
+	@IBAction func band2IncrementPressed(sender: UIButton) {
 		if (fiveDigits) {
 			valueBand2 = increment(valueBand2)
 		} else {
 			exponentBand2 = increment(exponentBand2)
 		}
 	}
-	@IBAction func band2LowerPressed(sender: UIButton) {
+	@IBAction func band2DecrementPressed(sender: UIButton) {
 		if (fiveDigits) {
 			valueBand2 = decrement(valueBand2)
 		} else {
 			exponentBand2 = decrement(exponentBand2)
 		}
 	}
-	@IBAction func band3UpperPressed(sender: UIButton) {
+	@IBAction func band3IncrementPressed(sender: UIButton) {
 		band3 = increment(band3)
 	}
-	@IBAction func band3LowerPressed(sender: UIButton) {
+	@IBAction func band3DecrementPressed(sender: UIButton) {
 		band3 = decrement(band3)
 	}
-	@IBAction func band4UpperPressed(sender: UIButton) {
+	@IBAction func band4IncrementPressed(sender: UIButton) {
 		band4 = increment(band4)
 	}
-	@IBAction func band4LowerPressed(sender: UIButton) {
+	@IBAction func band4DecrementPressed(sender: UIButton) {
 		band4 = decrement(band4)
 	}
 
