@@ -9,18 +9,19 @@
 import Foundation
 import CoreGraphics
 
+// Not strictly a "model" because of mixing sprite values, but it collapses a pointless view since we're using sprites
 enum ValueBand2: Int, Band {
 	case Clear	= -1
-	case Black	= 0
-	case Brown	= 1
-	case Red	= 2
-	case Orange = 3
-	case Yellow = 4
-	case Green	= 5
-	case Blue	= 6
-	case Purple = 7
-	case Gray	= 8
-	case White	= 9
+	case Black	=  0
+	case Brown	=  1
+	case Red	=  2
+	case Orange =  3
+	case Yellow =  4
+	case Green	=  5
+	case Blue	=  6
+	case Purple =  7
+	case Gray	=  8
+	case White	=  9
 
 	var bkgndDestRect: CGRect { return CGRectMake(199, 47, 20, 107) }
 
@@ -41,7 +42,5 @@ enum ValueBand2: Int, Band {
 	}
 
 	// decimal value of this color band
-	var value: Double { return (self.rawValue >= 0) ? Double(self.rawValue) : 0.0 }
-
-	//static let allValues = enumValues(ValueBand2)
+	var value: Double { return max(Double(self.rawValue), 0.0) }
 }

@@ -1,5 +1,5 @@
 //
-//  BandProtocol.swift
+//  Band.swift
 //  Resistor Guide
 //
 //  Created by Bad Motherfucker on 6/20/16.
@@ -9,6 +9,7 @@
 import Foundation
 import CoreGraphics
 
+// Not strictly a "model" because of mixing sprite values, but it collapses a pointless view since we're using sprites
 protocol Band {
 	var bkgndDestRect: CGRect { get }
 	var spriteSourceOrigin: CGPoint { get }

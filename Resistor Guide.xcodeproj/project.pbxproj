@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		945D5EFC1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
+		945D5EFD1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
+		945D5EFE1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
 		9468AC661D1863750092FF09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468AC651D1863750092FF09 /* AppDelegate.swift */; };
 		9468AC681D1863750092FF09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468AC671D1863750092FF09 /* ViewController.swift */; };
 		9468AC6B1D1863750092FF09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9468AC691D1863750092FF09 /* Main.storyboard */; };
@@ -41,9 +44,9 @@
 		9468ACC01D18D4120092FF09 /* UIImage+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACBF1D18D4120092FF09 /* UIImage+Merge.swift */; };
 		9468ACC11D18D4120092FF09 /* UIImage+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACBF1D18D4120092FF09 /* UIImage+Merge.swift */; };
 		9468ACC21D18D4120092FF09 /* UIImage+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACBF1D18D4120092FF09 /* UIImage+Merge.swift */; };
-		9468ACC41D18DC8E0092FF09 /* BandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACC31D18DC8E0092FF09 /* BandProtocol.swift */; };
-		9468ACC51D18DC8E0092FF09 /* BandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACC31D18DC8E0092FF09 /* BandProtocol.swift */; };
-		9468ACC61D18DC8E0092FF09 /* BandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACC31D18DC8E0092FF09 /* BandProtocol.swift */; };
+		9468ACC41D18DC8E0092FF09 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACC31D18DC8E0092FF09 /* Band.swift */; };
+		9468ACC51D18DC8E0092FF09 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACC31D18DC8E0092FF09 /* Band.swift */; };
+		9468ACC61D18DC8E0092FF09 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468ACC31D18DC8E0092FF09 /* Band.swift */; };
 		94753BBD1D1A0A9F008C9FF6 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94753BBC1D1A0A9F008C9FF6 /* EnumCollection.swift */; };
 		94753BC51D1B7DE5008C9FF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94753BC91D1B7DE5008C9FF6 /* Localizable.strings */; };
 		94753BC61D1B7DE5008C9FF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94753BC91D1B7DE5008C9FF6 /* Localizable.strings */; };
@@ -74,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureCoefficientBand5.swift; sourceTree = "<group>"; };
 		9468AC621D1863750092FF09 /* Resistor Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resistor Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9468AC651D1863750092FF09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9468AC671D1863750092FF09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +100,7 @@
 		9468ACAF1D18C0E80092FF09 /* AlternateExponentBand3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateExponentBand3.swift; sourceTree = "<group>"; };
 		9468ACB31D18C1200092FF09 /* ToleranceBand4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToleranceBand4.swift; sourceTree = "<group>"; };
 		9468ACBF1D18D4120092FF09 /* UIImage+Merge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Merge.swift"; sourceTree = "<group>"; };
-		9468ACC31D18DC8E0092FF09 /* BandProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandProtocol.swift; sourceTree = "<group>"; };
+		9468ACC31D18DC8E0092FF09 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		94753BBC1D1A0A9F008C9FF6 /* EnumCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		94753BC81D1B7DE5008C9FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94753BCB1D1B7F02008C9FF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -197,14 +201,15 @@
 		94753BBF1D1B7C6F008C9FF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9468ACC31D18DC8E0092FF09 /* Band.swift */,
+				94753BCE1D1B8350008C9FF6 /* EIAClass.swift */,
 				9468AC9B1D18BC670092FF09 /* ValueBand0.swift */,
 				9468AC9F1D18BC9A0092FF09 /* ValueBand1.swift */,
 				9468ACA71D18BFE90092FF09 /* ExponentBand2.swift */,
 				9468ACAB1D18C03A0092FF09 /* ValueBand2.swift */,
 				9468ACAF1D18C0E80092FF09 /* AlternateExponentBand3.swift */,
 				9468ACB31D18C1200092FF09 /* ToleranceBand4.swift */,
-				9468ACC31D18DC8E0092FF09 /* BandProtocol.swift */,
-				94753BCE1D1B8350008C9FF6 /* EIAClass.swift */,
+				945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945D5EFC1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */,
 				9468ACB01D18C0E80092FF09 /* AlternateExponentBand3.swift in Sources */,
 				9468ACA01D18BC9A0092FF09 /* ValueBand1.swift in Sources */,
 				9468ACA81D18BFE90092FF09 /* ExponentBand2.swift in Sources */,
@@ -368,7 +374,7 @@
 				9468ACC01D18D4120092FF09 /* UIImage+Merge.swift in Sources */,
 				9468AC9C1D18BC670092FF09 /* ValueBand0.swift in Sources */,
 				9468AC981D1873DE0092FF09 /* UIImage+ClipRect.swift in Sources */,
-				9468ACC41D18DC8E0092FF09 /* BandProtocol.swift in Sources */,
+				9468ACC41D18DC8E0092FF09 /* Band.swift in Sources */,
 				94753BCF1D1B8350008C9FF6 /* EIAClass.swift in Sources */,
 				94753BBD1D1A0A9F008C9FF6 /* EnumCollection.swift in Sources */,
 				9468AC661D1863750092FF09 /* AppDelegate.swift in Sources */,
@@ -385,13 +391,14 @@
 				9468ACB51D18C1200092FF09 /* ToleranceBand4.swift in Sources */,
 				9468AC7B1D1863750092FF09 /* Resistor_GuideTests.swift in Sources */,
 				94753BD01D1B8350008C9FF6 /* EIAClass.swift in Sources */,
+				945D5EFD1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */,
 				9468AC991D1873DE0092FF09 /* UIImage+ClipRect.swift in Sources */,
 				9468ACA11D18BC9A0092FF09 /* ValueBand1.swift in Sources */,
 				9468ACC11D18D4120092FF09 /* UIImage+Merge.swift in Sources */,
 				9468ACA91D18BFE90092FF09 /* ExponentBand2.swift in Sources */,
 				94753BD41D1B8A18008C9FF6 /* BinarySearch.swift in Sources */,
 				9468AC9D1D18BC670092FF09 /* ValueBand0.swift in Sources */,
-				9468ACC51D18DC8E0092FF09 /* BandProtocol.swift in Sources */,
+				9468ACC51D18DC8E0092FF09 /* Band.swift in Sources */,
 				9468ACAD1D18C03A0092FF09 /* ValueBand2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,13 +411,14 @@
 				9468ACB61D18C1200092FF09 /* ToleranceBand4.swift in Sources */,
 				9468AC861D1863750092FF09 /* Resistor_GuideUITests.swift in Sources */,
 				94753BD11D1B8350008C9FF6 /* EIAClass.swift in Sources */,
+				945D5EFE1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */,
 				9468AC9A1D1873DE0092FF09 /* UIImage+ClipRect.swift in Sources */,
 				9468ACA21D18BC9A0092FF09 /* ValueBand1.swift in Sources */,
 				9468ACC21D18D4120092FF09 /* UIImage+Merge.swift in Sources */,
 				9468ACAA1D18BFE90092FF09 /* ExponentBand2.swift in Sources */,
 				94753BD51D1B8A18008C9FF6 /* BinarySearch.swift in Sources */,
 				9468AC9E1D18BC670092FF09 /* ValueBand0.swift in Sources */,
-				9468ACC61D18DC8E0092FF09 /* BandProtocol.swift in Sources */,
+				9468ACC61D18DC8E0092FF09 /* Band.swift in Sources */,
 				9468ACAE1D18C03A0092FF09 /* ValueBand2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

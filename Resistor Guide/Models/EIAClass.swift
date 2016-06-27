@@ -52,7 +52,6 @@ enum EIAClass {
 			}
 			let e24Idx = binarySearch(e24Table, findElem: mantissa)
 			if e24Idx != e24Table.endIndex {
-				print("found e6/e12/e24")
 				if e24Idx % 8 == 0 {
 					switch tolerance {
 					case 50_00: return .E3

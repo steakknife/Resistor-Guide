@@ -9,6 +9,7 @@
 import Foundation
 import CoreGraphics
 
+// Not strictly a "model" because of mixing sprite values, but it collapses a pointless view since we're using sprites
 enum ValueBand0: Int, Band {
 	case Clear	= 0
 	// Black isn't standard for the first digit
@@ -28,7 +29,7 @@ enum ValueBand0: Int, Band {
 	// source in sprite
 	var spriteSourceOrigin: CGPoint {
 		switch self {
-		case .Clear:	return CGPointMake(  0, 200) // -1 clear
+		case .Clear:	return CGPointMake(  0, 200) // 0 clear
 		case .Brown:	return CGPointMake( 42, 200) // 1 brown
 		case .Red:		return CGPointMake( 83, 200) // 2 red
 		case .Orange:	return CGPointMake(125, 200) // 3 orange
@@ -43,6 +44,4 @@ enum ValueBand0: Int, Band {
 
 	// decimal value of this color band
 	var value: Double { return Double(self.rawValue) }
-
-	//static var allValues: [Band] { return [Clear, Brown, Red, Orange, Yellow, Green, Blue, Purple, Gray, White] }
 }
