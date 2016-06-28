@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9420CF0A1D2208CE0028BFCA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9420CF091D2208CE0028BFCA /* Settings.bundle */; };
 		945D5EFC1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
 		945D5EFD1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
 		945D5EFE1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
@@ -77,6 +78,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9420CF021D2200680028BFCA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9420CF031D2203920028BFCA /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9420CF041D2204350028BFCA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9420CF051D2204460028BFCA /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9420CF061D2204790028BFCA /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9420CF071D2204A70028BFCA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9420CF081D2205D20028BFCA /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = eu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9420CF091D2208CE0028BFCA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureCoefficientBand5.swift; sourceTree = "<group>"; };
 		9468AC621D1863750092FF09 /* Resistor Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resistor Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9468AC651D1863750092FF09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +113,6 @@
 		94753BBC1D1A0A9F008C9FF6 /* EnumCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		94753BC81D1B7DE5008C9FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94753BCB1D1B7F02008C9FF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		94753BCC1D1B7F14008C9FF6 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		94753BCD1D1B7F1F008C9FF6 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94753BCE1D1B8350008C9FF6 /* EIAClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIAClass.swift; sourceTree = "<group>"; };
 		94753BD21D1B8A18008C9FF6 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +174,7 @@
 				94753BC01D1B7CAD008C9FF6 /* Extensions */,
 				94753BBF1D1B7C6F008C9FF6 /* Models */,
 				94753BBE1D1B7BEE008C9FF6 /* Resources */,
+				9420CF091D2208CE0028BFCA /* Settings.bundle */,
 			);
 			path = "Resistor Guide";
 			sourceTree = "<group>";
@@ -313,7 +321,12 @@
 				Base,
 				ru,
 				ar,
-				he,
+				tr,
+				"zh-Hans",
+				"zh-Hant",
+				fa,
+				ja,
+				eu,
 			);
 			mainGroup = 9468AC591D1863740092FF09;
 			productRefGroup = 9468AC631D1863750092FF09 /* Products */;
@@ -336,6 +349,7 @@
 				94753BC51D1B7DE5008C9FF6 /* Localizable.strings in Resources */,
 				9468AC701D1863750092FF09 /* LaunchScreen.storyboard in Resources */,
 				9468AC6D1D1863750092FF09 /* Assets.xcassets in Resources */,
+				9420CF0A1D2208CE0028BFCA /* Settings.bundle in Resources */,
 				9468AC6B1D1863750092FF09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,8 +474,13 @@
 			children = (
 				94753BC81D1B7DE5008C9FF6 /* Base */,
 				94753BCB1D1B7F02008C9FF6 /* ru */,
-				94753BCC1D1B7F14008C9FF6 /* ar */,
-				94753BCD1D1B7F1F008C9FF6 /* he */,
+				9420CF021D2200680028BFCA /* ar */,
+				9420CF031D2203920028BFCA /* tr */,
+				9420CF041D2204350028BFCA /* zh-Hans */,
+				9420CF051D2204460028BFCA /* zh-Hant */,
+				9420CF061D2204790028BFCA /* fa */,
+				9420CF071D2204A70028BFCA /* ja */,
+				9420CF081D2205D20028BFCA /* eu */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

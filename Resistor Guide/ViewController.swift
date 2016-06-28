@@ -129,7 +129,8 @@ class ViewController: UIViewController {
 	@IBAction func valueLabelButtonPressed(sender: UIButton) {
 		valueFormat = increment(valueFormat)
 	}
-	
+
+
 	@IBAction func segmentsSegmentChanged(sender: UISegmentedControl) {
 		let idx = segmentsSegment.selectedSegmentIndex
 		// 0 .. 4 -> 1, 3 .. 6
@@ -178,8 +179,13 @@ class ViewController: UIViewController {
 		valueLabel.text = valueString
 	}
 
+	private var rightToLeftTextDirection: Bool {
+		return UIApplication.sharedApplication().userInterfaceLayoutDirection == .RightToLeft
+	}
+
 	private func updateImageView() {
 		resistorBackgroundView.image = composite
+		resistorBackgroundView.transform = rightToLeftTextDirection ? CGAffineTransformMakeScale(-1, 1) : CGAffineTransformIdentity
 	}
 
 	private var band0: ValueBand0 = .Brown { didSet { updateUI() } }
@@ -238,11 +244,17 @@ class ViewController: UIViewController {
 	private var valueFormat: ValueFormat = .Canonical {
 		didSet { updateUI() }
 	}
+
 	private var valueString: String {
+		let s: [String] = rightToLeftTextDirection ? valueStrings.reverse() : valueStrings
+		return s.joinWithSeparator(" ")
+	}
+
+	private var valueStrings: [String] {
 		switch valueFormat {
-		case .Canonical: return valueStringCanonical
-		case .Scientific: return valueStringScientific
-		case .Range: return valueStringRange
+		case .Canonical: return valueStringsCanonical
+		case .Scientific: return valueStringsScientific
+		case .Range: return valueStringsRange
 		}
 	}
 
@@ -290,16 +302,16 @@ class ViewController: UIViewController {
 		return (bandCount >= 5) ? mantissa : 10.0 * mantissa
 	}
 
-	private var eiaSeriesString: String {
+	private var eiaSeriesString: [String] {
 		switch EIAClass.classify(EIAClass.Mantissa(normalizedMantissa), tolerance: band4.tolerance) {
-		case .None: return ""
-		case .E3: return " E3"
-		case .E6: return " E6"
-		case .E12: return " E12"
-		case .E24: return " E24"
-		case .E48: return " E48"
-		case .E96: return " E96"
-		case .E192: return " E192"
+		case .None: return []
+		case .E3: return ["E3"]
+		case .E6: return ["E6"]
+		case .E12: return ["E12"]
+		case .E24: return ["E24"]
+		case .E48: return ["E48"]
+		case .E96: return ["E96"]
+		case .E192: return ["E192"]
 		}
 	}
 
@@ -307,26 +319,26 @@ class ViewController: UIViewController {
 		return band5.rawValue
 	}
 
-	private var temperatureCoefficientString: String {
+	private var temperatureCoefficientString: [String] {
 		if bandCount < 6 {
-			return ""
+			return []
 		}
 
 		let fmt = NSNumberFormatter()
 		fmt.minimumIntegerDigits = 1
 		fmt.maximumFractionDigits = 0
-		return " " + fmt.stringFromNumber(temperatureCoefficient)! + " ppm/ºC"
-
+		return [fmt.stringFromNumber(temperatureCoefficient)!, "ppm/ºC"]
 	}
 
 	private var percentString: String {
 		let fmt = NSNumberFormatter()
 		fmt.minimumIntegerDigits = 1
 		fmt.maximumFractionDigits = 2
-		return fmt.stringFromNumber(percent)!
+		let pcntStr = fmt.stringFromNumber(percent)!
+		return NSLocalizedString("%", comment: "").stringByReplacingOccurrencesOfString("%s", withString: pcntStr)
 	}
 
-	private var valueStringCanonical: String {
+	private var valueStringsCanonical: [String] {
 		let fmt = NSNumberFormatter()
 		fmt.minimumIntegerDigits = 1
 		fmt.maximumFractionDigits = (bandCount >= 5) ? 2 : 1
@@ -335,16 +347,15 @@ class ViewController: UIViewController {
 		let ohms: String = fmt.stringFromNumber(oInUnits.0)!
 		let units: String = oInUnits.1
 
-
-		let result = ohms + " " + units + "Ω"
+		let result = [ohms, units]
 		if value == 0.0 {
 			return result
 		}
-		return result + " ± " + percentString + "%" + eiaSeriesString + temperatureCoefficientString
+		return result + ["±", percentString] + eiaSeriesString + temperatureCoefficientString
 	}
 
 
-	private var valueStringScientific: String {
+	private var valueStringsScientific: [String] {
 		let fmt = NSNumberFormatter()
 		fmt.minimumIntegerDigits = 1
 		if bandCount >= 5 { // 5,6 bands, 3 digit mantissa
@@ -370,14 +381,14 @@ class ViewController: UIViewController {
 
 		let ohmsScientific = fmt.stringFromNumber(value)!
 
-		let result = ohmsScientific + " Ω"
+		let result = [ohmsScientific, NSLocalizedString("1e0", comment: "")]
 		if value == 0.0 {
 			return result
 		}
-		return result + " ± " + percentString + "%" + eiaSeriesString + temperatureCoefficientString
+		return result + ["±", percentString] + eiaSeriesString + temperatureCoefficientString
 	}
 
-	private var valueStringRange: String {
+	private var valueStringsRange: [String] {
 		let fmt = NSNumberFormatter()
 		fmt.minimumIntegerDigits = 1
 		fmt.maximumFractionDigits = (bandCount >= 5) ? 2 : 1
@@ -392,16 +403,15 @@ class ViewController: UIViewController {
 		let upperUnits: String = upperInUnits.1
 
 
-		let result = lowerOhms + " " + lowerUnits + "Ω - " + upperOhms + " " + upperUnits + "Ω"
+		let result = [lowerOhms, lowerUnits, "-", upperOhms, upperUnits]
 
 		if value == 0.0 {
 			return result
 		}
-		return result + " " + percentString + "%" + eiaSeriesString + temperatureCoefficientString
+		return result + [percentString] + eiaSeriesString + temperatureCoefficientString
 	}
 
 	private lazy var background: UIImage = self.sprite.clip(CGRectMake(400, 0, 400, 200))
 	private var composite: UIImage { return background.mergeMany(bandSprites) }
-
 }
 
