@@ -29,7 +29,7 @@ func increment<T: Hashable> (x: T) -> T {
 	let allValues = enumValues(T)
 
 	var found = false
-	for elem in allValues {
+	for elem: T in allValues {
 		if found {
 			return elem
 		}
@@ -43,7 +43,7 @@ func increment<T: Hashable> (x: T) -> T {
 func decrement<T: Hashable> (x: T) -> T {
 	let allValues = enumValues(T)
 	var prev: T! = allValues.last!
-	for elem in allValues {
+	for elem: T in allValues {
 		if elem == x {
 			return prev
 		}

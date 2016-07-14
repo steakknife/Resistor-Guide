@@ -13,9 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	/*
+	func dumpAllNotifications() {
+		NSNotificationCenter.defaultCenter().addObserverForName(nil, object: nil, queue: nil) { notification in
+			print("Notification found with:" +
+				"\r\n     name:     \(notification.name)" +
+				"\r\n     object:   \(notification.object)" +
+				"\r\n     userInfo: \(notification.userInfo)"
+				)
+		}
+	}
+	*/
 
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
+		//dumpAllNotifications()
+		Settings.registerNSUserDefaults()
 		return true
 	}
 

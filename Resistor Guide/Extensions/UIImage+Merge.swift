@@ -17,53 +17,25 @@ extension UIImage {
 		// start drawing
 
 		drawAtPoint(CGPointZero)
-		for (img, at) in topImages {
+		for (img, at): (UIImage, CGPoint) in topImages {
 			img.drawAtPoint(at)
 		}
 
 		// finish drawing
 
-		let result = UIGraphicsGetImageFromCurrentImageContext()
+		let result: UIImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 
 		return result
 	}
 
 	func mergeMany(topImages: [UIImage]) -> UIImage! {
-		UIGraphicsBeginImageContext(size)
-
-		// start drawing
-
-		drawAtPoint(CGPointZero)
-		for img in topImages {
-			img.drawAtPoint(CGPointZero)
-		}
-
-		// finish drawing
-
-		let result = UIGraphicsGetImageFromCurrentImageContext()
-		UIGraphicsEndImageContext()
-
-		return result
+		let imgs: [(UIImage, CGPoint)] = topImages.map { ($0, CGPointZero) }
+		return mergeMany(imgs)
 	}
 
-	func merge(topImage: UIImage, at: CGPoint) -> UIImage! {
-		UIGraphicsBeginImageContext(size)
-
-		// start drawing
-
-		drawAtPoint(CGPointZero)
-		topImage.drawAtPoint(at)
-
-		// finish drawing
-
-		let result = UIGraphicsGetImageFromCurrentImageContext()
-		UIGraphicsEndImageContext()
-
-		return result
-	}
-
-	func merge(topImage: UIImage) -> UIImage! {
-		return merge(topImage, at: CGPointZero)
+	func merge(topImage: UIImage, at: CGPoint = CGPointZero) -> UIImage! {
+		let imgs: [(UIImage, CGPoint)] = [(topImage, at)]
+		return mergeMany(imgs)
 	}
 }

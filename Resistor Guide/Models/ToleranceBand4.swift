@@ -45,8 +45,8 @@ enum ToleranceBand4: Int, Band {
 	}
 
 	// hundreds of percents: 0-2000
-	var tolerance: UInt { return UInt(abs(rawValue)) }
+	var tolerance: UInt16 { return UInt16(abs(rawValue)) }
 
-	// be sure to round to .01: 0-100
-	var percent: Double { return Double(tolerance) / 100.0 }
+	// be sure to round to .0001: 0-100
+	var percent: Double { return Double(tolerance) / 10000.0 }
 }

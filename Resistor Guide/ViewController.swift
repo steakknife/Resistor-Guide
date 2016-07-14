@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-	let debug = false
+	let debug: Bool = false
 
 	@IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var resistorBackgroundView: UIImageView!
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		resistorBackgroundView.contentMode = .ScaleAspectFit
 		updateUI()
 		if !debug {
@@ -56,6 +57,15 @@ class ViewController: UIViewController {
 				band5IncrementButton, band5DecrementButton
 			].forEach { $0.backgroundColor = nil }
 			valueLabel.backgroundColor = nil
+		}
+		Settings.listenForChanges(self, selector: #selector(defaultsChanged))
+		if #available(iOS 9.0, *) {
+		} else { // iOS < 9.0
+			if rightToLeftTextDirection {
+				resistorBackgroundView.transform = CGAffineTransformMakeScale(-1, 1)
+			} else { // left-to-right or other
+				resistorBackgroundView.transform = CGAffineTransformIdentity
+			}
 		}
 	}
 
@@ -82,16 +92,16 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func band0IncrementPressed(sender: UIButton) {
-		band0 = incrementPastClear(band0)
+		rawBand0 = incrementPastClear(rawBand0)
 	}
 	@IBAction func band0DecrementPressed(sender: UIButton) {
-		band0 = decrementPastClear(band0)
+		rawBand0 = decrementPastClear(rawBand0)
 	}
 	@IBAction func band1IncrementPressed(sender: UIButton) {
-		band1 = incrementPastClear(band1)
+		rawBand1 = incrementPastClear(rawBand1)
 	}
 	@IBAction func band1DecrementPressed(sender: UIButton) {
-		band1 = decrementPastClear(band1)
+		rawBand1 = decrementPastClear(rawBand1)
 	}
 	@IBAction func band2IncrementPressed(sender: UIButton) {
 		if bandCount >= 5 {
@@ -108,22 +118,22 @@ class ViewController: UIViewController {
 		}
 	}
 	@IBAction func band3IncrementPressed(sender: UIButton) {
-		band3 = incrementPastClear(band3)
+		rawBand3 = incrementPastClear(rawBand3)
 	}
 	@IBAction func band3DecrementPressed(sender: UIButton) {
-		band3 = decrementPastClear(band3)
+		rawBand3 = decrementPastClear(rawBand3)
 	}
 	@IBAction func band4IncrementPressed(sender: UIButton) {
-		band4 = incrementPastClear(band4)
+		rawBand4 = incrementPastClear(rawBand4)
 	}
 	@IBAction func band4DecrementPressed(sender: UIButton) {
-		band4 = decrementPastClear(band4)
+		rawBand4 = decrementPastClear(rawBand4)
 	}
 	@IBAction func band5IncrementPressed(sender: UIButton) {
-		band5 = incrementPastClear(band5)
+		rawBand5 = incrementPastClear(rawBand5)
 	}
 	@IBAction func band5DecrementPressed(sender: UIButton) {
-		band5 = decrementPastClear(band5)
+		rawBand5 = decrementPastClear(rawBand5)
 	}
 
 	@IBAction func valueLabelButtonPressed(sender: UIButton) {
@@ -153,15 +163,14 @@ class ViewController: UIViewController {
 	// 5 bands: | | | | |
 	// 6 bands: | | | | | |
 	private func updateUI() {
-		let firstBand = bandCount >= 3
-		band0DecrementButton.enabled = firstBand
-		band0IncrementButton.enabled = firstBand
-		let secondBand = bandCount >= 3
-		band1DecrementButton.enabled = secondBand
-		band1IncrementButton.enabled = secondBand
-		let thirdBand = bandCount >= 3
-		band2DecrementButton.enabled = thirdBand
-		band2IncrementButton.enabled = thirdBand
+		segmentsSegment.selectedSegmentIndex = bandCountAsSelectedSegmentIndex
+		let firstThreeBands = bandCount >= 3
+		band0DecrementButton.enabled = firstThreeBands
+		band0IncrementButton.enabled = firstThreeBands
+		band1DecrementButton.enabled = firstThreeBands
+		band1IncrementButton.enabled = firstThreeBands
+		band2DecrementButton.enabled = firstThreeBands
+		band2IncrementButton.enabled = firstThreeBands
 		let fourthBand = bandCount >= 5
 		band3DecrementButton.enabled = fourthBand
 		band3IncrementButton.enabled = fourthBand
@@ -172,55 +181,140 @@ class ViewController: UIViewController {
 		band5DecrementButton.enabled = sixthBand
 		band5IncrementButton.enabled = sixthBand
 		updateImageView()
-		updateOhmsLabel()
-	}
-
-	private func updateOhmsLabel() {
 		valueLabel.text = valueString
 	}
 
-	private var rightToLeftTextDirection: Bool {
-		return UIApplication.sharedApplication().userInterfaceLayoutDirection == .RightToLeft
-	}
+	private lazy var rightToLeftTextDirection = UIApplication.sharedApplication().userInterfaceLayoutDirection == .RightToLeft
 
 	private func updateImageView() {
-		resistorBackgroundView.image = composite
-		resistorBackgroundView.transform = rightToLeftTextDirection ? CGAffineTransformMakeScale(-1, 1) : CGAffineTransformIdentity
+		if #available(iOS 9.0, *) {
+			resistorBackgroundView.image = composite.imageFlippedForRightToLeftLayoutDirection()
+		} else {
+			resistorBackgroundView.image = composite
+		}
 	}
 
-	private var band0: ValueBand0 = .Brown { didSet { updateUI() } }
-	private var band1: ValueBand1 = .Black { didSet { updateUI() } }
-	private var valueBand2: ValueBand2 = .Black { didSet { updateUI() } }
-	private var exponentBand2: ExponentBand2 = .Black { didSet { updateUI() } }
-	private var band3: AlternateExponentBand3 = .Red { didSet { updateUI() } }
-	private var band4: ToleranceBand4 = .Black { didSet { updateUI() } }
-	private var band5: TemperatureCoefficientBand5 = .Brown { didSet { updateUI() } }
+	@objc private func defaultsChanged() {
+		updateUI()
+	}
+
+	private var rawBand0: ValueBand0 {
+		get {
+			return ValueBand0(rawValue: Settings.band0RawValue)!
+		}
+		set {
+			Settings.band0RawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+	private var rawBand1: ValueBand1 {
+		get {
+			return ValueBand1(rawValue: Settings.band1RawValue)!
+		}
+		set {
+			Settings.band1RawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+	private var valueBand2: ValueBand2 {
+		get {
+			return ValueBand2(rawValue: Settings.valueBand2RawValue)!
+		}
+		set {
+			Settings.valueBand2RawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+	private var exponentBand2: ExponentBand2 {
+		get {
+			return ExponentBand2(rawValue: Settings.exponentBandRawValue)!
+		}
+		set {
+			Settings.exponentBandRawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+	private var rawBand3: AlternateExponentBand3 {
+		get {
+			return AlternateExponentBand3(rawValue: Settings.exponentBandRawValue)!
+		}
+		set {
+			Settings.exponentBandRawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+
+	private var rawBand4: ToleranceBand4 {
+		get {
+			return ToleranceBand4(rawValue: Settings.band4RawValue)!
+
+		}
+		set {
+			Settings.band4RawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+
+	private var rawBand5: TemperatureCoefficientBand5 {
+		get {
+			return TemperatureCoefficientBand5(rawValue: Settings.band5RawValue)!
+		}
+		set {
+			Settings.band5RawValue = newValue.rawValue
+			updateUI()
+		}
+	}
+
 
 	private let sprite: UIImage = UIImage.init(named: "sprite")!
 
 	// d = digit, e = exponent, t = tolerance, c = temp co.
+	//          0 1 2 3 4 5
 	// 1 band:      d
 	// 3 bands: d d e
 	// 4 bands: d d e   t
 	// 5 bands: d d d e t
 	// 6 bands: d d d e t c
 	// draw band 6 before 5 because of clipping
-	private var bands: [Band!] {
-		switch bandCount {
-		case 1: return [ValueBand0.Clear, ValueBand1.Clear, ValueBand2.Black, AlternateExponentBand3.Clear, TemperatureCoefficientBand5.Clear, ToleranceBand4.Clear]
-		case 3: return [band0, band1, exponentBand2, AlternateExponentBand3.Clear, TemperatureCoefficientBand5.Clear, ToleranceBand4.Clear]
-		case 4: return [band0, band1, exponentBand2, AlternateExponentBand3.Clear, TemperatureCoefficientBand5.Clear, band4]
-		case 5: return [band0, band1, valueBand2, band3, TemperatureCoefficientBand5.Clear, band4]
-		default /* 6 */: return [band0, band1, valueBand2, band3, band5, band4]
+
+	private var band0: ValueBand0 {
+		return (bandCount != 1) ? rawBand0 : .Clear
+	}
+
+	private var band1: ValueBand1 {
+		return (bandCount != 1) ? rawBand1 : .Clear
+	}
+
+	private var band2: Band {
+		if bandCount == 1 {
+			return ValueBand2.Black
+		} else if bandCount >= 5 {
+			return valueBand2
 		}
+		// bandCount == 3 or 4
+		return exponentBand2
+	}
+
+	private var band3: AlternateExponentBand3 {
+		return (bandCount >= 5) ? rawBand3 : .Clear
+	}
+
+	private var band4: ToleranceBand4 {
+		return (bandCount >= 4) ? rawBand4 : .Clear
+	}
+
+	private var band5: TemperatureCoefficientBand5 {
+		return (bandCount == 6) ? rawBand5 : .Clear
 	}
 
 	private var bandSprites: [(UIImage, CGPoint)] {
-		return bands.map { (sprite.clip($0.spriteSourceRect), $0.bkgndDestRect.origin) }
+		return [band0, band1, band2, band3, band5, band4].map {
+			(sprite.clip($0.spriteSourceRect), $0.bkgndDestRect.origin)
+		}
 	}
 
 	private var mantissa: Double {
-		if bandCount == 1 {
+		if bandCount == 1 { // for 0 ohm resistor
 			return 0.0
 		}
 		let result = 10.0 * band0.value + 1.0 * band1.value
@@ -231,7 +325,7 @@ class ViewController: UIViewController {
 	}
 
 	private var exponent: Double {
-		if bandCount == 1 {
+		if bandCount == 1 { // for 0 ohm resistor
 			return 1.0
 		}
 		return (bandCount >= 5) ? band3.exponent : exponentBand2.exponent
@@ -239,11 +333,9 @@ class ViewController: UIViewController {
 
 	private var value: Double { return mantissa * pow(10.0, exponent) }
 
-	private var percent: Double { return (bandCount >= 4 ? band4 : .Clear).percent }
+	private var percent: Double { return band4.percent }
 
-	private var valueFormat: ValueFormat = .Canonical {
-		didSet { updateUI() }
-	}
+	private var valueFormat: ValueFormat = .Canonical { didSet { updateUI() } }
 
 	private var valueString: String {
 		let s: [String] = rightToLeftTextDirection ? valueStrings.reverse() : valueStrings
@@ -258,7 +350,7 @@ class ViewController: UIViewController {
 		}
 	}
 
-	private let allOhmUnitsUnlocalized = [
+	private let allOhmUnitsUnlocalized: [(Double, String)] = [
 		(1_000_000_000.0,   "1e9"),
 		(    1_000_000.0,   "1e6"),
 		(        1_000.0,   "1e3"),
@@ -276,24 +368,31 @@ class ViewController: UIViewController {
 		return (v, "")
 	}
 
+	private var bandCountAsSelectedSegmentIndex: Int {
+		return (bandCount == 1) ? 0 : (bandCount-2)
+	}
+
 	// d = digit, e = exponent, t = tolerance, c = temp co.
 	// 3 bands: d d e
 	// 4 bands: d d e   t
 	// 5 bands: d d d e t
 	// 6 bands: d d d e t c
-	private var bandCount: Int = 3 {
-		willSet {
-			if bandCount == newValue {
+	private var bandCount: Int {
+		get {
+			return Settings.bandCount
+		}
+
+		set {
+			if bandCount == newValue { // nothing to do
 				return
 			}
 
 			if bandCount <= 4 && newValue >= 5 { // 3,4 -> 5,6
-				band3 = AlternateExponentBand3(rawValue: exponentBand2.rawValue)!
+				rawBand3 = AlternateExponentBand3(rawValue: exponentBand2.rawValue)!
 			} else if bandCount >= 5 && newValue <= 4 { // 5,6 -> 4,3
 				exponentBand2 = ExponentBand2(rawValue: band3.rawValue)!
 			}
-		}
-		didSet {
+			Settings.bandCount = newValue
 			updateUI()
 		}
 	}
@@ -303,16 +402,10 @@ class ViewController: UIViewController {
 	}
 
 	private var eiaSeriesString: [String] {
-		switch EIAClass.classify(EIAClass.Mantissa(normalizedMantissa), tolerance: band4.tolerance) {
-		case .None: return []
-		case .E3: return ["E3"]
-		case .E6: return ["E6"]
-		case .E12: return ["E12"]
-		case .E24: return ["E24"]
-		case .E48: return ["E48"]
-		case .E96: return ["E96"]
-		case .E192: return ["E192"]
+		if let eia = EIAClass.classify(EIAClass.Mantissa(normalizedMantissa), tolerance: band4.tolerance) {
+			return [eia.description]
 		}
+		return []
 	}
 
 	private var temperatureCoefficient: Int {
@@ -324,23 +417,21 @@ class ViewController: UIViewController {
 			return []
 		}
 
-		let fmt = NSNumberFormatter()
-		fmt.minimumIntegerDigits = 1
+		let fmt = Settings.nsNumberFormatterFactory()
 		fmt.maximumFractionDigits = 0
 		return [fmt.stringFromNumber(temperatureCoefficient)!, "ppm/ºC"]
 	}
 
 	private var percentString: String {
-		let fmt = NSNumberFormatter()
-		fmt.minimumIntegerDigits = 1
+		let fmt = Settings.nsNumberFormatterFactory()
 		fmt.maximumFractionDigits = 2
+		fmt.numberStyle = .PercentStyle
 		let pcntStr = fmt.stringFromNumber(percent)!
-		return NSLocalizedString("%", comment: "").stringByReplacingOccurrencesOfString("%s", withString: pcntStr)
+		return pcntStr
 	}
 
 	private var valueStringsCanonical: [String] {
-		let fmt = NSNumberFormatter()
-		fmt.minimumIntegerDigits = 1
+		let fmt = Settings.nsNumberFormatterFactory()
 		fmt.maximumFractionDigits = (bandCount >= 5) ? 2 : 1
 
 		let oInUnits = ohmsInUnits(value)
@@ -356,8 +447,7 @@ class ViewController: UIViewController {
 
 
 	private var valueStringsScientific: [String] {
-		let fmt = NSNumberFormatter()
-		fmt.minimumIntegerDigits = 1
+		let fmt = Settings.nsNumberFormatterFactory()
 		if bandCount >= 5 { // 5,6 bands, 3 digit mantissa
 			if mantissa >= 10.0 {
 				fmt.maximumFractionDigits = 1
@@ -389,12 +479,11 @@ class ViewController: UIViewController {
 	}
 
 	private var valueStringsRange: [String] {
-		let fmt = NSNumberFormatter()
-		fmt.minimumIntegerDigits = 1
+		let fmt = Settings.nsNumberFormatterFactory()
 		fmt.maximumFractionDigits = (bandCount >= 5) ? 2 : 1
 
-		let lower = value * (1.0 - percent / 100.0)
-		let upper = value * (1.0 + percent / 100.0)
+		let lower = value * (1.0 - percent)
+		let upper = value * (1.0 + percent)
 		let lowerInUnits = ohmsInUnits(lower)
 		let upperInUnits = ohmsInUnits(upper)
 		let lowerOhms: String = fmt.stringFromNumber(lowerInUnits.0)!

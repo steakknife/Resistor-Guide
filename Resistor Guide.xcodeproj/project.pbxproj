@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9420CF0A1D2208CE0028BFCA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9420CF091D2208CE0028BFCA /* Settings.bundle */; };
+		94409FCA1D220E430098CB51 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94409FC91D220E430098CB51 /* Settings.bundle */; };
+		94409FCC1D22182D0098CB51 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 94409FCB1D22182D0098CB51 /* README.markdown */; };
 		945D5EFC1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
 		945D5EFD1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
 		945D5EFE1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */; };
+		94654A431D234F8E000A5109 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94654A421D234F8E000A5109 /* String+Regex.swift */; };
+		94654A441D234F8E000A5109 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94654A421D234F8E000A5109 /* String+Regex.swift */; };
+		94654A451D234F8E000A5109 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94654A421D234F8E000A5109 /* String+Regex.swift */; };
 		9468AC661D1863750092FF09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468AC651D1863750092FF09 /* AppDelegate.swift */; };
 		9468AC681D1863750092FF09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468AC671D1863750092FF09 /* ViewController.swift */; };
 		9468AC6B1D1863750092FF09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9468AC691D1863750092FF09 /* Main.storyboard */; };
@@ -58,6 +62,9 @@
 		94753BD31D1B8A18008C9FF6 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94753BD21D1B8A18008C9FF6 /* BinarySearch.swift */; };
 		94753BD41D1B8A18008C9FF6 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94753BD21D1B8A18008C9FF6 /* BinarySearch.swift */; };
 		94753BD51D1B8A18008C9FF6 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94753BD21D1B8A18008C9FF6 /* BinarySearch.swift */; };
+		94EC63B71D262F1800A78A0F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC63B61D262F1800A78A0F /* Settings.swift */; };
+		94EC63B81D262F1800A78A0F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC63B61D262F1800A78A0F /* Settings.swift */; };
+		94EC63B91D262F1800A78A0F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EC63B61D262F1800A78A0F /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +92,11 @@
 		9420CF061D2204790028BFCA /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9420CF071D2204A70028BFCA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9420CF081D2205D20028BFCA /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = eu.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9420CF091D2208CE0028BFCA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
+		94409FC91D220E430098CB51 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		94409FCB1D22182D0098CB51 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		94409FCD1D23399B0098CB51 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureCoefficientBand5.swift; sourceTree = "<group>"; };
+		94654A421D234F8E000A5109 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
 		9468AC621D1863750092FF09 /* Resistor Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resistor Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9468AC651D1863750092FF09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9468AC671D1863750092FF09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +125,7 @@
 		94753BCB1D1B7F02008C9FF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94753BCE1D1B8350008C9FF6 /* EIAClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EIAClass.swift; sourceTree = "<group>"; };
 		94753BD21D1B8A18008C9FF6 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
+		94EC63B61D262F1800A78A0F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +156,7 @@
 		9468AC591D1863740092FF09 = {
 			isa = PBXGroup;
 			children = (
+				94409FCB1D22182D0098CB51 /* README.markdown */,
 				9468AC641D1863750092FF09 /* Resistor Guide */,
 				9468AC791D1863750092FF09 /* Resistor GuideTests */,
 				9468AC841D1863750092FF09 /* Resistor GuideUITests */,
@@ -174,7 +186,6 @@
 				94753BC01D1B7CAD008C9FF6 /* Extensions */,
 				94753BBF1D1B7C6F008C9FF6 /* Models */,
 				94753BBE1D1B7BEE008C9FF6 /* Resources */,
-				9420CF091D2208CE0028BFCA /* Settings.bundle */,
 			);
 			path = "Resistor Guide";
 			sourceTree = "<group>";
@@ -200,6 +211,7 @@
 		94753BBE1D1B7BEE008C9FF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94409FC91D220E430098CB51 /* Settings.bundle */,
 				9468AC931D1866D40092FF09 /* sprite.png */,
 				94753BC91D1B7DE5008C9FF6 /* Localizable.strings */,
 			);
@@ -218,6 +230,7 @@
 				9468ACAF1D18C0E80092FF09 /* AlternateExponentBand3.swift */,
 				9468ACB31D18C1200092FF09 /* ToleranceBand4.swift */,
 				945D5EFB1D20D938008C974E /* TemperatureCoefficientBand5.swift */,
+				94EC63B61D262F1800A78A0F /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +242,7 @@
 				9468ACBF1D18D4120092FF09 /* UIImage+Merge.swift */,
 				94753BBC1D1A0A9F008C9FF6 /* EnumCollection.swift */,
 				94753BD21D1B8A18008C9FF6 /* BinarySearch.swift */,
+				94654A421D234F8E000A5109 /* String+Regex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +315,7 @@
 				TargetAttributes = {
 					9468AC611D1863750092FF09 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ENTHKRCUB9;
 					};
 					9468AC751D1863750092FF09 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -327,6 +342,7 @@
 				fa,
 				ja,
 				eu,
+				uk,
 			);
 			mainGroup = 9468AC591D1863740092FF09;
 			productRefGroup = 9468AC631D1863750092FF09 /* Products */;
@@ -349,7 +365,7 @@
 				94753BC51D1B7DE5008C9FF6 /* Localizable.strings in Resources */,
 				9468AC701D1863750092FF09 /* LaunchScreen.storyboard in Resources */,
 				9468AC6D1D1863750092FF09 /* Assets.xcassets in Resources */,
-				9420CF0A1D2208CE0028BFCA /* Settings.bundle in Resources */,
+				94409FCA1D220E430098CB51 /* Settings.bundle in Resources */,
 				9468AC6B1D1863750092FF09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,10 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				945D5EFC1D20D938008C974E /* TemperatureCoefficientBand5.swift in Sources */,
+				94654A431D234F8E000A5109 /* String+Regex.swift in Sources */,
 				9468ACB01D18C0E80092FF09 /* AlternateExponentBand3.swift in Sources */,
 				9468ACA01D18BC9A0092FF09 /* ValueBand1.swift in Sources */,
 				9468ACA81D18BFE90092FF09 /* ExponentBand2.swift in Sources */,
 				9468AC681D1863750092FF09 /* ViewController.swift in Sources */,
+				94EC63B71D262F1800A78A0F /* Settings.swift in Sources */,
 				94753BD31D1B8A18008C9FF6 /* BinarySearch.swift in Sources */,
 				9468ACC01D18D4120092FF09 /* UIImage+Merge.swift in Sources */,
 				9468AC9C1D18BC670092FF09 /* ValueBand0.swift in Sources */,
@@ -393,6 +411,7 @@
 				94753BBD1D1A0A9F008C9FF6 /* EnumCollection.swift in Sources */,
 				9468AC661D1863750092FF09 /* AppDelegate.swift in Sources */,
 				9468ACB41D18C1200092FF09 /* ToleranceBand4.swift in Sources */,
+				94409FCC1D22182D0098CB51 /* README.markdown in Sources */,
 				9468ACAC1D18C03A0092FF09 /* ValueBand2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94654A441D234F8E000A5109 /* String+Regex.swift in Sources */,
 				9468ACB11D18C0E80092FF09 /* AlternateExponentBand3.swift in Sources */,
 				9468ACB51D18C1200092FF09 /* ToleranceBand4.swift in Sources */,
 				9468AC7B1D1863750092FF09 /* Resistor_GuideTests.swift in Sources */,
@@ -409,6 +429,7 @@
 				9468AC991D1873DE0092FF09 /* UIImage+ClipRect.swift in Sources */,
 				9468ACA11D18BC9A0092FF09 /* ValueBand1.swift in Sources */,
 				9468ACC11D18D4120092FF09 /* UIImage+Merge.swift in Sources */,
+				94EC63B81D262F1800A78A0F /* Settings.swift in Sources */,
 				9468ACA91D18BFE90092FF09 /* ExponentBand2.swift in Sources */,
 				94753BD41D1B8A18008C9FF6 /* BinarySearch.swift in Sources */,
 				9468AC9D1D18BC670092FF09 /* ValueBand0.swift in Sources */,
@@ -421,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94654A451D234F8E000A5109 /* String+Regex.swift in Sources */,
 				9468ACB21D18C0E80092FF09 /* AlternateExponentBand3.swift in Sources */,
 				9468ACB61D18C1200092FF09 /* ToleranceBand4.swift in Sources */,
 				9468AC861D1863750092FF09 /* Resistor_GuideUITests.swift in Sources */,
@@ -429,6 +451,7 @@
 				9468AC9A1D1873DE0092FF09 /* UIImage+ClipRect.swift in Sources */,
 				9468ACA21D18BC9A0092FF09 /* ValueBand1.swift in Sources */,
 				9468ACC21D18D4120092FF09 /* UIImage+Merge.swift in Sources */,
+				94EC63B91D262F1800A78A0F /* Settings.swift in Sources */,
 				9468ACAA1D18BFE90092FF09 /* ExponentBand2.swift in Sources */,
 				94753BD51D1B8A18008C9FF6 /* BinarySearch.swift in Sources */,
 				9468AC9E1D18BC670092FF09 /* ValueBand0.swift in Sources */,
@@ -481,6 +504,7 @@
 				9420CF061D2204790028BFCA /* fa */,
 				9420CF071D2204A70028BFCA /* ja */,
 				9420CF081D2205D20028BFCA /* eu */,
+				94409FCD1D23399B0098CB51 /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -577,7 +601,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Resistor Guide/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -591,7 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Resistor Guide/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

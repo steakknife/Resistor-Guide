@@ -6,17 +6,19 @@
 //  Copyright © 2016 BMF. All rights reserved.
 //
 
+// TODO: needs major refactoring for Swift 3.0
+
 import Foundation
 
 func binarySearch<T: Comparable, C: CollectionType where C.Index: BidirectionalIndexType, C.Generator.Element == T, C.Index: Comparable> (collection: C, findElem: T) -> C.Index {
-	var lowerIndex = collection.startIndex
-	var upperIndex = collection.endIndex.predecessor()
+	var lowerIndex: C.Index = collection.startIndex
+	var upperIndex: C.Index = collection.endIndex.predecessor()
 
 	while lowerIndex <= upperIndex {
-		let bisectionDistance = lowerIndex.distanceTo(upperIndex) / 2
-		let bisectionIndex = lowerIndex.advancedBy(bisectionDistance)
+		let bisectionDistance: C.Index.Distance = lowerIndex.distanceTo(upperIndex) / 2
+		let bisectionIndex: C.Index = lowerIndex.advancedBy(bisectionDistance)
 		// middle half between upper and lower
-		let bisectionElement = collection[bisectionIndex]
+		let bisectionElement: T = collection[bisectionIndex]
 		if bisectionElement == findElem { // found
 			return bisectionIndex
 		} else { // not found: skip bisectionElement on next iteration
