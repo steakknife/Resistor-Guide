@@ -73,55 +73,55 @@ iOS 8.0+ app for iPhone, iPod Touch and iPad
 
 Supported languages 
 -------------------
-ar         Arabic
-bg         Bulgarian
-bn         Bengali (Bangladesh, India)
-da         Danish
-de         German
-el         Greek (Cyprus, Greece)
-en         English
-es         Spanish
-eu         Basque (Spain)
-fa         Persian (Farsi)
-fi         Finish
-fr         French
-gu         Gujarati (India)
-he         Hebrew (Israel)
-hi         Hindi (India)
-hr         Croatian
-hu         Hungarian
-id         Indonesian
-it         Italian
-ja         Japanese
-jv         Javanese (Indonesia)
-kn         Kannada (India)
-ko         Korean (North, South)
-ku         Kurdish (Kurdistan (Turkey, Iraq, Iran, Syria), Armenia, Azerbaijan, Georgia)
-mr         Marathi (India)
-ms-MY      Malay (Malaysian)
-my         Burmese (Myanmar/Burma)
-nl         Dutch
-or         Odia (India)
-pa         Punjabi (India, Pakistan)
-pl         Polish
-ps         Pashto (Pakistan, Afghanistan)
-pt         Portuguese
-ro         Romanian
-ru         Russian
-su         Sundanese (Indonesia)
-sv         Swedish
-ta         Tamil (India, Sri Lanka)
-te         Telugu (India)
-th         Thai
-tl         Tagalog (Philippines)
-tr         Turkish
-uk         Ukrainian
-ur         Urdu (India, Pakistan)
-vi         Vietnamese
-zh-Hans    Mandarin Chinese (Simplified)
-zh-Hant    Mandarin Chinese (Traditional)
-zh-Hant-TW Chinese (Traditional, Taiwan)
-zh-HK      Chinese (Hong Kong)
+- ar         Arabic
+- bg         Bulgarian
+- bn         Bengali (Bangladesh, India)
+- da         Danish
+- de         German
+- el         Greek (Cyprus, Greece)
+- en         English
+- es         Spanish
+- eu         Basque (Spain)
+- fa         Persian (Farsi)
+- fi         Finish
+- fr         French
+- gu         Gujarati (India)
+- he         Hebrew (Israel)
+- hi         Hindi (India)
+- hr         Croatian
+- hu         Hungarian
+- id         Indonesian
+- it         Italian
+- ja         Japanese
+- jv         Javanese (Indonesia)
+- kn         Kannada (India)
+- ko         Korean (North, South)
+- ku         Kurdish (Kurdistan (Turkey, Iraq, Iran, Syria), Armenia, Azerbaijan, Georgia)
+- mr         Marathi (India)
+- ms-MY      Malay (Malaysian)
+- my         Burmese (Myanmar/Burma)
+- nl         Dutch
+- or         Odia (India)
+- pa         Punjabi (India, Pakistan)
+- pl         Polish
+- ps         Pashto (Pakistan, Afghanistan)
+- pt         Portuguese
+- ro         Romanian
+- ru         Russian
+- su         Sundanese (Indonesia)
+- sv         Swedish
+- ta         Tamil (India, Sri Lanka)
+- te         Telugu (India)
+- th         Thai
+- tl         Tagalog (Philippines)
+- tr         Turkish
+- uk         Ukrainian
+- ur         Urdu (India, Pakistan)
+- vi         Vietnamese
+- zh-Hans    Mandarin Chinese (Simplified)
+- zh-Hant    Mandarin Chinese (Traditional)
+- zh-Hant-TW Chinese (Traditional, Taiwan)
+- zh-HK      Chinese (Hong Kong)
 
 References
 ----------
@@ -131,11 +131,11 @@ References
 
 Currently unsupported
 ---------------------
-   Wu (inc. Shanghainese) / Yue (Cantonese)
-cs Czech
-sk Slovak
-ca Catalan
-nb Norwegian (Bokmal)
+-    Wu (inc. Shanghainese) / Yue (Cantonese)
+- cs Czech
+- sk Slovak
+- ca Catalan
+- nb Norwegian (Bokmal)
 
 License
 -------
