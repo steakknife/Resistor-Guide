@@ -67,6 +67,11 @@ Needs some Pshopping
 - White - 1 ppm/ºC
 
 
+Language
+--------
+
+Swift 2.2
+
 Supported platforms 
 -------------------
 iOS 8.0+ app for iPhone, iPod Touch and iPad
